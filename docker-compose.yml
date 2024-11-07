@@ -7,6 +7,8 @@ services:
       - "5001:5000"
     networks:
       - ecom-network
+    environment:
+      MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
 
   products-service:
     build: ./products-service
@@ -14,6 +16,8 @@ services:
       - "5002:5000"
     networks:
       - ecom-network
+    environment:
+      MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
 
   orders-service:
     build: ./orders-service
@@ -21,6 +25,8 @@ services:
       - "5003:5000"
     networks:
       - ecom-network
+    environment:
+      MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
 
   inventory-service:
     build: ./inventory-service
@@ -28,6 +34,8 @@ services:
       - "5004:5000"
     networks:
       - ecom-network
+    environment:
+      MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
 
 networks:
   ecom-network:
