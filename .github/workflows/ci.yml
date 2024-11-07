@@ -1,0 +1,52 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    services:
+      docker:
+        image: docker:19.03.12
+        options: --privileged
+        ports:
+          - 5001:5001
+          - 5002:5002
+          - 5003:5003
+          - 5004:5004
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install -r users-service/requirements.txt
+          pip install -r products-service/requirements.txt
+          pip install -r orders-service/requirements.txt
+          pip install -r inventory-service/requirements.txt
+
+      - name: Run Tests
+        run: |
+          pytest users-service/tests/
+          pytest products-service/tests/
+          pytest orders-service/tests/
+          pytest inventory-service/tests/
+
+      - name: Build Docker Images
+        run: |
+          docker build -t users-service:latest ./users-service
+          docker build -t products-service:latest ./products-service
+          docker build -t orders-service:latest ./orders-service
+          docker build -t inventory-service:latest ./inventory-service
