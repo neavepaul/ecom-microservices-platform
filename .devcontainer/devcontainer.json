@@ -1,0 +1,18 @@
+{
+    "name": "Ecom Microservices Platform",
+    "image": "mcr.microsoft.com/devcontainers/python:3.10",
+    "features": {
+        "docker-from-docker": "latest"
+    },
+    "postCreateCommand": "pip install -r requirements.txt || true", // Skips error if no requirements.txt
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
+    "portsAttributes": {
+        "5001": { "label": "Users Service" },
+        "5002": { "label": "Products Service" },
+        "5003": { "label": "Orders Service" },
+        "5004": { "label": "Inventory Service" }
+    },
+    "forwardPorts": [5001, 5002, 5003, 5004]
+}
