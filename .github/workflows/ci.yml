@@ -38,6 +38,8 @@ jobs:
           pip install -r inventory-service/requirements.txt
 
       - name: Run Tests
+        env:
+          TESTING: "true"
         run: |
           pytest users-service/tests/
           pytest products-service/tests/
