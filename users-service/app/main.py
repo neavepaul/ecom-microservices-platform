@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from database import insert_user, find_user
+from .database import insert_user, find_user
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)

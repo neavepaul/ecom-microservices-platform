@@ -7,9 +7,7 @@ MONGO_URI = os.getenv('MONGO_URI')
 # Connect to MongoDB
 client = MongoClient(MONGO_URI)
 
-# Determine the database name based on whether we're in a test environment
-db_name = "test_platform" if os.getenv("TESTING") == "true" else "ecom_platform"
-db = client[db_name]
+db = client["ecom_platform"]
 
 # Example: Accessing the "users" collection
 users_collection = db["users"]
