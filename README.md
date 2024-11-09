@@ -1,5 +1,4 @@
 # E-commerce Microservices Platform
-=====================================
 
 ## Overview
 
