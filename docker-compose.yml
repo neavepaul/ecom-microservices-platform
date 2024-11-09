@@ -9,7 +9,6 @@ services:
       - ecom-network
     environment:
       MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
-      TESTING: "false"
 
   products-service:
     build: ./products-service
@@ -19,7 +18,6 @@ services:
       - ecom-network
     environment:
       MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
-      TESTING: "false"
 
   orders-service:
     build: ./orders-service
@@ -29,7 +27,6 @@ services:
       - ecom-network
     environment:
       MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
-      TESTING: "false"
 
   inventory-service:
     build: ./inventory-service
@@ -39,7 +36,15 @@ services:
       - ecom-network
     environment:
       MONGO_URI: "mongodb+srv://neave:a5pO4sEvRMmTQrJO@ecom-microsystems.8f8el.mongodb.net/?retryWrites=true&w=majority&appName=ecom-microsystems"
-      TESTING: "false"
+
+  frontend:
+    build:
+      context: ./ecom-frontend
+    ports:
+      - "3000:3000"
+    networks:
+      - ecom-network
+    command: ["npm", "start"]
 
 networks:
   ecom-network:
