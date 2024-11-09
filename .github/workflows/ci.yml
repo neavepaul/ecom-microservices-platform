@@ -41,10 +41,10 @@ jobs:
         env:
           TESTING: "true"
         run: |
-          pytest users-service/tests/
-          pytest products-service/tests/
-          pytest orders-service/tests/
-          pytest inventory-service/tests/
+          pytest users-service/tests/ -v
+          pytest products-service/tests/ -v
+          pytest orders-service/tests/ -v
+          pytest inventory-service/tests/ -v
 
       - name: Build Docker Images
         run: |

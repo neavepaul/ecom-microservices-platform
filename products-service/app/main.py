@@ -1,4 +1,3 @@
-# File: products-service/app/main.py
 from flask import Flask, request, jsonify
 from bson import ObjectId
 from .database import insert_product, find_product, update_product, delete_product, list_all_products

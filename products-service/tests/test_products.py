@@ -1,4 +1,3 @@
-# File: products-service/tests/test_products.py
 import pytest
 import mongomock
 import sys
