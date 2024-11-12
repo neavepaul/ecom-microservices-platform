@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
 from bson import ObjectId
-from database import add_inventory, get_inventory, update_inventory, delete_inventory, list_inventory
+from app.database import add_inventory, get_inventory, update_inventory, delete_inventory, list_inventory
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 def serialize_inventory(inventory):
     inventory["_id"] = str(inventory["_id"])

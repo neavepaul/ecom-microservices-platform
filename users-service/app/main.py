@@ -1,10 +1,10 @@
 from flask import Flask, request, jsonify
-from database import insert_user, find_user
+from app.database import insert_user, find_user
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 # Route to create a new user (simple example)

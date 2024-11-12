@@ -1,11 +1,11 @@
 # File: orders-service/app/main.py
 from flask import Flask, request, jsonify
 from bson import ObjectId
-from database import create_order, get_order, update_order_status, delete_order, list_orders
+from app.database import create_order, get_order, update_order_status, delete_order, list_orders
 from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 
 def serialize_order(order):
