@@ -55,7 +55,3 @@ jobs:
           docker build -t products-service:latest ./products-service
           docker build -t orders-service:latest ./orders-service
           docker build -t inventory-service:latest ./inventory-service
-
-      - name: Run Docker Compose
-        run: |
-          docker-compose -f docker-compose.yml up -d
